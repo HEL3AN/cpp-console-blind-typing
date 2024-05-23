@@ -1,1 +1,1 @@
-# cpp-console-blynd-typing
+# cpp-console-blind-typing
