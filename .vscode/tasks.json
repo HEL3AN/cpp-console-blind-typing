@@ -30,13 +30,9 @@
         {
             "label": "run",
             "type": "shell",
-            "command": "cmd.exe",
+            "command": "D:/msys64/mingw64.exe",
             "args": [
-                "/C",
-                "start",
-                "cmd.exe",
-                "/K",
-                "${fileDirname}/output/${fileBasenameNoExtension}.exe"
+                "D:/C++/cpp-console-blind-typing/console-blind-typing/output/main.exe"
             ],
             "presentation": {
                 "echo": true,
