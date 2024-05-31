@@ -19,8 +19,8 @@
                     "ignoreFailures": true
                 }
             ],
-            "preLaunchTask": "build",
-            "miDebuggerPath": "/usr/bin/gdb",
+            "preLaunchTask": "C/C++: g++.exe build active file",
+            "miDebuggerPath": "D:/msys64/mingw64/bin/gdb.exe",
             "internalConsoleOptions": "openOnSessionStart"
         }
     ]

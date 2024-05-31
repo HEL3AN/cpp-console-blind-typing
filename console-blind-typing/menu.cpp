@@ -2,10 +2,11 @@
 #include <curses.h>
 #include <map>
 #include <string>
+#include <iostream>
+#include <chrono>
+#include "globals.cpp"
 
 namespace Menu {
-    int x = 0;
-    int y = 0;
     enum class Element {
         Start,
         Exit
@@ -16,14 +17,20 @@ namespace Menu {
     const std::map<Element, std::string> menu_elements_text = { {Element::Start, "Start"}, {Element::Exit, "Exit"} };
 
     void PrintMenu(WINDOW *window) {
+        int y_padding = 0;
+        box(window, 0, 0); 
         for (const auto& [element, text] : menu_elements_text) {
             if (element == choise) {
-                mvprintw(y, x, "%s", text.c_str());
+                mvprintw(WINDOW_HEIGHT / 2 - static_cast<int>(menu_elements_text.size()) / 2 + y_padding,
+                         WINDOW_WIDTH / 2 - static_cast<int>(text.size()) / 2,
+                         "%s", text.c_str());
             } else {
-                mvprintw(y, x, "%s", text.c_str());
+                mvprintw(WINDOW_HEIGHT / 2 - static_cast<int>(menu_elements_text.size()) / 2 + y_padding,
+                         WINDOW_WIDTH / 2 - static_cast<int>(text.size()) / 2,
+                         "%s", text.c_str());
             }
-            ++y;
+            ++y_padding;
         }
-        refresh();
+        wrefresh(window);
     }
 }
