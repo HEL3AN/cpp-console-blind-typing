@@ -23,15 +23,16 @@ int main() {
     curs_set(0);
     keypad(stdscr, TRUE);
 
-    WINDOW *window = newwin(WINDOW_HEIGHT, WINDOW_WIDTH, START_Y, START_X); 
-    keypad(window, TRUE);
+    InitMainWin();
+    keypad(MAIN_WINDOW, TRUE);
     refresh();
 
-    do {
-        PrintWindow(window);
-    } while ((CURRENT_KEY = getch()) != 27);
+    do {    
+        PrintWindow();
+        ProcessInput();
+        ControlWindow();
+    } while (!SHOULD_CLOSE);
 
-    getch();
     endwin();
     return 0;
 }

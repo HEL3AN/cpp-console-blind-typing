@@ -19,7 +19,7 @@ namespace Menu_Window {
                                                                 {Element::Setting, "Setting"},
                                                                 {Element::Exit, "Exit"} };
 
-    void ControlMenu() {
+    void Control() {
         switch (CURRENT_KEY)
         {
             case KEY_UP:
@@ -29,26 +29,37 @@ namespace Menu_Window {
                 choise = static_cast<Element>(static_cast<int>(choise) + 1);
                 break;
             case KEY_ENTER:
+                switch (choise)
+                {
+                    case Element::Start:
+                        ChangeWindow(WINDOWS::Game);
+                        break;   
+                    case Element::Setting:
+                        //ChangeWindow(WINDOWS::Setting);
+                        break;
+                    case Element::Exit:
+                        SHOULD_CLOSE = true;
+                    default:
+                        break;
+                }
                 break;
             default:
                 break;
         }
     }
 
-    void PrintMenu(WINDOW *window) {
-        ControlMenu();
- 
+    void Print() {
         int y_padding = static_cast<int>(menu_elements_text.size()) / 2;
         for (const auto& [element, text] : menu_elements_text) {
             if (element == choise) {
-                wattron(window, A_REVERSE);
-                mvwprintw(window,
+                wattron(MAIN_WINDOW, A_REVERSE);
+                mvwprintw(MAIN_WINDOW,
                           WINDOW_HEIGHT / 2 - y_padding + static_cast<int>(element),
                           WINDOW_WIDTH / 2 - static_cast<int>(text.size()) / 2,
                           "%s", text.c_str());
-                wattroff(window, A_REVERSE);
+                wattroff(MAIN_WINDOW, A_REVERSE);
             } else {
-                mvwprintw(window,
+                mvwprintw(MAIN_WINDOW,
                           WINDOW_HEIGHT / 2 - y_padding + static_cast<int>(element),
                           WINDOW_WIDTH / 2 - static_cast<int>(text.size()) / 2,
                           "%s", text.c_str());
