@@ -20,12 +20,16 @@ int main() {
     clear();
     noecho();
     cbreak();
+    curs_set(0);
+    keypad(stdscr, TRUE);
 
     WINDOW *window = newwin(WINDOW_HEIGHT, WINDOW_WIDTH, START_Y, START_X); 
     keypad(window, TRUE);
-
     refresh();
-    Menu::PrintMenu(window);
+
+    do {
+        PrintWindow(window);
+    } while ((CURRENT_KEY = getch()) != 27);
 
     getch();
     endwin();
