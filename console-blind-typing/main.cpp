@@ -27,11 +27,11 @@ int main() {
     keypad(MAIN_WINDOW, TRUE);
     refresh();
 
-    do {    
+    while (!SHOULD_CLOSE) {    
         PrintWindow();
         ProcessInput();
         ControlWindow();
-    } while (!SHOULD_CLOSE);
+    }
 
     endwin();
     return 0;

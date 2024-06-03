@@ -54,10 +54,13 @@ void ChangeWindow(WINDOWS window_type) {
 
 void ProcessInput() {
     CURRENT_KEY = getch();
-    if (CURRENT_KEY == '\n') {
+    if (CURRENT_KEY == '\n') { //enter buutom
         CURRENT_KEY = KEY_ENTER;
     }
-    if (CURRENT_KEY == 27) {
+    if (CURRENT_KEY == 27) { //esc button
         CURRENT_KEY = KEY_EXIT;
+    }
+    if (CURRENT_KEY == 127 || CURRENT_KEY == '\b') { //backspace button
+        CURRENT_KEY = KEY_BACKSPACE;
     }
 }

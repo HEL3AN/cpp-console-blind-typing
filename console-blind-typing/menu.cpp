@@ -23,10 +23,18 @@ namespace Menu_Window {
         switch (CURRENT_KEY)
         {
             case KEY_UP:
-                choise = static_cast<Element>(static_cast<int>(choise) - 1);
+                if (choise == Element::Start) {
+                    choise = Element::Exit;
+                } else {
+                    choise = static_cast<Element>(static_cast<int>(choise) - 1);
+                }
                 break;
             case KEY_DOWN:
-                choise = static_cast<Element>(static_cast<int>(choise) + 1);
+                if (choise == Element::Exit) {
+                    choise = Element::Start;
+                } else {
+                    choise = static_cast<Element>(static_cast<int>(choise) + 1);
+                }
                 break;
             case KEY_ENTER:
                 switch (choise)

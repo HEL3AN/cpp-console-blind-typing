@@ -4,7 +4,7 @@
         {
             "type": "cppbuild",
             "label": "C/C++: g++.exe build active file",
-            "command": "D:/msys64/mingw64/bin/g++.exe",
+            "command": "C:/msys64/mingw64/bin/g++.exe",
             "args": [
                 "-fdiagnostics-color=always",
                 "-g",
@@ -30,9 +30,9 @@
         {
             "label": "run_in_mingw64",
             "type": "shell",
-            "command": "D:/msys64/mingw64.exe",
+            "command": "C:/msys64/mingw64.exe",
             "args": [
-                "D:/C++/cpp-console-blind-typing/console-blind-typing/output/main.exe"
+                "C:/C++/cpp-console-blind-typing/console-blind-typing/output/main.exe"
             ],
             "presentation": {
                 "echo": true,
