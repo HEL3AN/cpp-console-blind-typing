@@ -20,7 +20,6 @@ bool SHOULD_CLOSE = false;
 
 void PrintWindow() {
     wclear(MAIN_WINDOW);
-    box(MAIN_WINDOW, 0, 0);
     switch (CURRENT_WINDOW)
     {
         case WINDOWS::Menu:
@@ -32,6 +31,7 @@ void PrintWindow() {
         default:
             break;
     }
+    box(MAIN_WINDOW, 0, 0);
     wrefresh(MAIN_WINDOW);
 }
 void ControlWindow() {
