@@ -1,5 +1,7 @@
 #ifndef GLOBALS_H
 #define GLOBALS_H
+#include <vector>
+#include <string>
 
 extern const int WINDOW_WIDTH;
 extern const int WINDOW_HEIGHT;
@@ -24,5 +26,7 @@ void ControlWindow();
 void ChangeWindow(WINDOWS window_type);
 
 void ProcessInput();
+
+std::vector<std::string> SplitIntoWords(const std::string& text);
 
 #endif

@@ -49,6 +49,9 @@ void ControlWindow() {
 }
 void ChangeWindow(WINDOWS window_type) {
     CURRENT_WINDOW = window_type;
+    if (CURRENT_WINDOW == WINDOWS::Game) {
+        Game_Window::Init();
+    }
     PrintWindow();
 }
 
@@ -63,4 +66,21 @@ void ProcessInput() {
     if (CURRENT_KEY == 127 || CURRENT_KEY == '\b') { //backspace button
         CURRENT_KEY = KEY_BACKSPACE;
     }
+}
+
+std::vector<std::string> SplitIntoWords(const std::string& text) {
+    std::vector<std::string> words;
+    std::string word;
+    for (const char symbol : text) {
+        if (symbol == ' ') {
+            words.push_back(word);
+            word.clear();
+        } else {
+            word += symbol;
+        }
+    }
+    if (!word.empty()) {
+        words.push_back(word);
+    }
+    return words;
 }

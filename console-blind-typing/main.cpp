@@ -24,9 +24,10 @@ int main() {
     keypad(stdscr, TRUE);
 
     InitMainWin();
+    start_color();
     keypad(MAIN_WINDOW, TRUE);
     refresh();
-
+    
     while (!SHOULD_CLOSE) {    
         PrintWindow();
         ProcessInput();
