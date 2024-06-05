@@ -12,6 +12,9 @@
                 "-I${workspaceFolder}/include",
                 "-L${workspaceFolder}/lib",
                 "-l:pdcurses.a",
+                "-static",
+                "-static-libgcc",
+                "-static-libstdc++",
                 "-o",
                 "${fileDirname}/output/${fileBasenameNoExtension}.exe"
             ],
