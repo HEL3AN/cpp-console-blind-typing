@@ -6,17 +6,22 @@
 #include "globals.cpp"
 
 namespace Game_Window {
-    std::string correct_text = "give me this fancy boolochka";
+    std::string correct_text;
     std::string user_text;
 
     std::vector<int> index_of_incorrect_symbols;
     std::vector<int> index_of_correct_typed_words;
     std::vector<std::string> words_of_correct_text;
-    int current_word_index = 0; 
+    int current_word_index; 
 
     void Init() {
         init_pair(1, COLOR_BLACK, COLOR_GREEN);
+        correct_text = "give me this fancy boolochka";
+        user_text.clear();
+        index_of_incorrect_symbols.clear();
+        index_of_correct_typed_words.clear();    
         words_of_correct_text = SplitIntoWords(correct_text);
+        current_word_index = 0;
     }
 
     void Control() {
@@ -54,8 +59,6 @@ namespace Game_Window {
                 if (user_text.size() == words_of_correct_text[current_word_index].size()
                     && current_word_index == static_cast<int>(words_of_correct_text.size() - 1)
                     && index_of_incorrect_symbols.empty()) {
-                    user_text.clear();
-                    //добавить команды для очищения переменных
                     wclear(MAIN_WINDOW);
                     mvwprintw(MAIN_WINDOW, START_Y, START_X, "%s", "You win!");
                     wrefresh(MAIN_WINDOW);
